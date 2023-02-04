@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hitung Skor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-capitalize" href="#">Hitung Skor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-light text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hitung Score</h5>
+            <button type="button" class="btn btn-dark text-light" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+        </div>
+        <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </li>
+        </ul>
+    </div>
+    </div>
+</div>
+</nav>    
+<!-- end navbar -->
+<!-- ini coba2 aja nggak tau nanti jadinya gimana -->
+<!-- isi skor awal -->
+<div class="container" style="margin-top: 100px;">
+    <h1 class="text-capitalize text-center">Isi data pemain</h1>
+    <div class="alert alert-danger my-3 text-capitalize" style="display: none;" id="validasi">Jangan Kosong Tolong Di Isi</div>
+    <div class="container">
+        <form action="#" method="post">
+            <div class="mb-3">
+                <label for="nama-pemain-1">Nama Pemain 1</label>
+                <input type="text" class="form-control" id="player1" name="player1">
+            </div>
+            <div class="mb-3">
+                <label for="nama-pemain-2">Nama Pemain 2</label>
+                <input type="text" class="form-control" id="player2" name="player2">
+            </div>
+            <div class="mb-3">
+                <button type="button" id="buttonsubmit" class="btn btn-outline-primary w-100" onclick="BackendCount()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- isi skore akhir -->
+
+<!-- data pemain vs pemain start -->
+<div class="container mt-4 mb-4">
+    <h2 class="text-center text-capitalize">Data Pemain</h2>
+    <div class="row text-center">
+        <div class="col-lg-4" id="kolom1">
+            <h2 id="dataplayer1" class="text-uppercase"></h2>
+            <h4 id="scoreplayer1" style="display: none;" class="skore">0</h4>
+            <!-- button babak pertama -->
+            <a class="btn btn-success my-3 text-capitalize" id="play1" onclick="btn1()" style="display: none;">Tambahkan Poin <strong id="datap1"></strong></a>
+            <a class="btn btn-outline-success my-3 text-capitalize" id="playmin1" onclick="btnk1()" style="display: none;"><strong id="datap1"></strong></a>
+            <!-- button babak ketiga -->
+            <a class="btn btn-success my-3 text-capitalize" id="play3" onclick="btn3()" style="display: none;">Tambahkan Poin <strong id="datap1"></strong></a>
+            <a class="btn btn-outline-success my-3 text-capitalize" id="playmin3" onclick="btnk3()" style="display: none;"><strong id="datap1"></strong></a>
+            <!-- button babak kelima jika terjadi rubber game dengan kondisi lanjut -->
+            <a class="btn btn-success my-3 text-capitalize" id="play5" onclick="btn5()" style="display: none;">Tambahkan Poin <strong id="datap1"></strong></a>
+            <a class="btn btn-outline-success my-3 text-capitalize" id="playmin5" onclick="btnk5()" style="display: none;"><strong id="datap1"></strong></a>
+        </div>
+        <div class="col-lg-4">
+        <h2 class="text-uppercase" id="vs" style="display: none;">vs</h2>
+        </div>
+        <div class="col-lg-4" id="kolom2">
+            <h2 id="dataplayer2" class="text-uppercase"></h2>
+            <h4 id="scoreplayer2" style="display: none;" class="skore">0</h4>
+            <!-- pemain dua babak satu -->
+            <a class="btn btn-danger my-3 text-capitalize" id="play2" onclick="btn2()" style="display: none;">Tambahkan Poin <strong id="datap2"></strong></a>
+            <a class="btn btn-outline-danger my-3 text-capitalize" id="playmin2" onclick="btnk2()" style="display: none;"><strong id="datap2"></strong></a>
+            <!-- pemain dua babak dua -->
+            <a class="btn btn-danger my-3 text-capitalize" id="play4" onclick="btn4()" style="display: none;">Tambahkan Poin <strong id="datap2"></strong></a>
+            <a class="btn btn-outline-danger my-3 text-capitalize" id="playmin4" onclick="btnk4()" style="display: none;"><strong id="datap2"></strong></a>
+            <!-- button babak kelima jika terjadi rubber game dengan kondisi lanjut -->
+            <a class="btn btn-danger my-3 text-capitalize" id="play6" onclick="btn6()" style="display: none;">Tambahkan Poin <strong id="datap1"></strong></a>
+            <a class="btn btn-outline-danger my-3 text-capitalize" id="playmin6" onclick="btnk6()" style="display: none;"><strong id="datap1"></strong></a>
+        </div>
+    </div>
+
+</div>
+
+<!--report buat gamenya -->
+<hr color="#000" size="30px">
+<div class="container mt-4 mb-4 pt-2 pb-2">
+    <h1 class="text-center text-capitalize">report game</h1>
+    <p class="text-center">hasil pertandingan dari babak 1 Hingga Babak 2 / 3</p>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Keterangan</strong> Yang Warna Hijau Adalah Pemain 1 Dan yang Merah Adalah Pemain 2
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row mt-4">
+    <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-header">
+                Babak 1
+            </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h2 id="repplayer1"></h2>
+                    <h4 id="scorebabak1" class="skore"></h4>
+                </div>
+                <div class="col-sm-6">
+                    <h2 id="repplayer2"></h2>
+                    <h4 id="scorebabak2" class="skore"></h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Score : 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="alert alert-success" id="num1"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="alert alert-danger" id="num2"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-header">
+                Babak 2
+            </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h2 id="repplayerr3"></h2>
+                    <h4 id="scorebabakk3" class="skore"></h4>
+                </div>
+                <div class="col-sm-6">
+                    <h2 id="repplayerr4"></h2>
+                    <h4 id="scorebabakk4" class="skore"></h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Score : 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="alert alert-success" id="num3"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="alert alert-danger" id="num4"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">
+                Babak 3
+            </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h2 id="repplayerr5"></h2>
+                    <h4 id="scorebabakk5" class="skore"></h4>
+                </div>
+                <div class="col-sm-6">
+                    <h2 id="repplayerr6"></h2>
+                    <h4 id="scorebabakk6" class="skore"></h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Score : 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="alert alert-success" id="num5"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="alert alert-danger" id="num6"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- report buat gamenya -->
+
+<!-- footer adalah hak cipta start -->
+<footer class="bg-dark py-4 text-light">
+    <div class="container">
+    <p class="text-center">Copyright &copy; Hitung Score <span id="tahun"></span> Made With &#10084; Achmad Fadli Iskandar - Muhammad Fadlan Iskandar</p>
+    </div>
+</footer>
+<!-- footer adalah hak cipta end -->
+
+<!-- javascript begin -->
+<script>
+    // bikin tahun otomatis dengan javascript
+    const date = new Date()
+    let tahun = date.getFullYear()
+    document.getElementById("tahun").innerHTML = tahun
+    // end bikin tahun otomatis dengan javascript
+
+    function BackendCount(){
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        if (datapemain1 == 0 || datapemain2 == 0){
+            // alert('tolong di isi') kayaknya kurang kalau begini
+            // mendingan begini
+            document.getElementById("validasi").style.display = "block"
+            document.getElementById("scoreplayer1").style.display = "none"
+            document.getElementById("scoreplayer2").style.display = "none"
+            document.getElementById("play1").style.display = "none"
+            document.getElementById("play2").style.display = "none"
+            document.getElementById("scorebabak1").style.display = "none"
+            document.getElementById("scorebabak2").style.display = "none"
+        }else if(datapemain1 == datapemain2){
+            document.getElementById("validasi").style.display = "block"
+            document.getElementById("validasi").innerHTML = "jangan sama dong player 1 dan 2"
+            document.getElementById("scoreplayer1").style.display = "none"
+            document.getElementById("scoreplayer2").style.display = "none"
+            document.getElementById("play1").style.display = "none"
+            document.getElementById("play2").style.display = "none"
+            document.getElementById("scorebabak1").style.display = "none"
+            document.getElementById("scorebabak2").style.display = "none"
+        }else{
+            let d1 = document.getElementById("dataplayer1").innerHTML = datapemain1;
+            const smbl = document.getElementById("vs").style.display = "block";
+            let d2 = document.getElementById("dataplayer2").innerHTML = datapemain2;
+            document.getElementById("validasi").style.display = "none"
+            document.getElementById("scoreplayer1").style.display = "block"
+            document.getElementById("scoreplayer2").style.display = "block"
+            document.getElementById("play1").style.display = "block"
+            document.getElementById("play2").style.display = "block"
+            document.getElementById("scorebabak1").style.display = "none"
+            document.getElementById("scorebabak2").style.display = "none"
+            document.getElementById("datap1").innerHTML = datapemain1
+            document.getElementById("datap2").innerHTML = datapemain2
+        }
+    }
+    // variabel score p1 dan p2
+    var scoresp1 = 0;
+    var scoresp2 = 0;
+    // end variabel p1 dan p2
+
+    // variabel score set global angka 1 dan 2 dan 0
+    var scoreset1 = 0
+    var scoreset2 = 0
+    // end variabel score set global angka 1 dan 2 dan 0
+
+    // fungsi button add point for p1
+    function btn1() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        ++scoresp1;
+        datas = scoresp2;
+        if (scoresp1 > 0){
+            document.getElementById("playmin1").style.display = "block";
+            document.getElementById("playmin1").innerHTML = "Kurangi Poin "+datapemain1
+        }
+        if(scoresp1 == 20 && datas < 20 || scoresp1 == 21 && datas == 20 || scoresp1 == 22 && datas == 21 || scoresp1 == 23 && datas == 22 || scoresp1 == 24 && datas == 23 || scoresp1 == 25 && datas == 24 || scoresp1 == 26 && datas == 25 || scoresp1 == 27 && datas == 26 || scoresp1 == 28 && datas == 27 || scoresp1 == 29 && datas == 28 || scoresp1 == 29 && datas == 29){
+            alert("Game Poin " + datapemain1)
+        }
+        if (scoresp1 == 21 && datas <=19 || scoresp1 == 22 && datas <=20 || scoresp1 == 23 && datas <=21 || scoresp1 == 24 && datas <=22 || scoresp1 == 25 && datas <=23 || scoresp1 == 26 && datas <=24 || scoresp1 == 27 && datas <=25 || scoresp1 == 28 && datas <=26 || scoresp1 == 29 && datas <=27 || scoresp1 == 30 && datas == 28 || scoresp1 == 30 && datas == 29){
+            // alert("kamu menang " + datapemain1)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 1',
+            'success'
+            )
+            // button 1 hilang
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+
+            // ini yang muncul
+            
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayer1").style.display = "block" // pemain 1
+            document.getElementById("repplayer1").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayer2").style.display = "block" // pemain 2
+            document.getElementById("repplayer2").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            
+            var simpanskorep1 = scoresp1;
+            var simpanskorep2 = scoresp2;
+            document.getElementById("scorebabak1").style.display = "block" // angka pemain1
+            document.getElementById("scorebabak1").innerHTML = simpanskorep1; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabak2").style.display = "block" // angka pemain2
+            document.getElementById("scorebabak2").innerHTML = simpanskorep2; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num1").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num2").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num1").innerHTML = scoreset1
+            document.getElementById("num2").innerHTML = scoreset2 
+            // ini juga wajib muncul
+            // fungsi babak kedua
+            var scorebabak3 = 0
+            var scorebabak4 = 0
+            function SecondHalf() {
+                // variabel score p1 dan p2
+                document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+                document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+                document.getElementById("play3").style.display = "block"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "block"
+                document.getElementById("playmin4").style.display = "none"
+                // penambahan variabel nama
+                document.getElementById("play3").innerHTML = "Tambah Poin : " + datapemain1
+                document.getElementById("playmin3").innerHTML = "Kurangi Poin : " + datapemain1
+                document.getElementById("play4").innerHTML = "Tambah Poin : " + datapemain2
+                document.getElementById("playmin4").innerHTML = "Kurangi Poin : " + datapemain2
+            }
+            SecondHalf()
+            // fungsi babak kedua
+        }   
+        else if (scoresp1 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let skore1 = document.getElementById("scoreplayer1").innerHTML = scoresp1;
+        }
+    }
+    // end fungsi btn add point for p1
+
+    // fungsi btn min point for p1
+    function btnk1(){
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        --scoresp1;
+        datas = scoresp2;
+        if (scoresp1 < 1) {
+            // alert("poin pas nol jangan dikurangin")
+            document.getElementById("playmin1").style.display = "none";
+        }
+        if(scoresp1 == 20 && datas < 20 || scoresp1 == 21 && datas == 20 || scoresp1 == 22 && datas == 21 || scoresp1 == 23 && datas == 22 || scoresp1 == 24 && datas == 23 || scoresp1 == 25 && datas == 24 || scoresp1 == 26 && datas == 25 || scoresp1 == 27 && datas == 26 || scoresp1 == 28 && datas == 27 || scoresp1 == 29 && datas == 28|| scoresp1 == 29 && datas == 29){
+            alert("Game Poin " + datapemain1)
+        }
+        if (scoresp1 == 21 && datas <=19 || scoresp1 == 22 && datas <=20 || scoresp1 == 23 && datas <=21 || scoresp1 == 24 && datas <=22 || scoresp1 == 25 && datas <=23 || scoresp1 == 26 && datas <=24 || scoresp1 == 27 && datas <=25 || scoresp1 == 28 && datas <=26 || scoresp1 == 29 && datas <=27|| scoresp1 == 30 && datas == 28 || scoresp1 == 30 && datas == 29){
+            // alert("kamu menang " + datapemain1)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 1',
+            'success'
+            )
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayer1").style.display = "block" // pemain 1
+            document.getElementById("repplayer1").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayer2").style.display = "block" // pemain 2
+            document.getElementById("repplayer2").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            
+            var simpanskorep1 = scoresp1;
+            var simpanskorep2 = scoresp2;
+            document.getElementById("scorebabak1").style.display = "block" // angka pemain1
+            document.getElementById("scorebabak1").innerHTML = simpanskorep1; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabak2").style.display = "block" // angka pemain2
+            document.getElementById("scorebabak2").innerHTML = simpanskorep2; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num1").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num2").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num1").innerHTML = scoreset1
+            document.getElementById("num2").innerHTML = scoreset2 
+            
+            var scorebabak3 = 0
+            var scorebabak4 = 0
+            function SecondHalf() {
+                // variabel score p1 dan p2
+                document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+                document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+                document.getElementById("play3").style.display = "block"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "block"
+                document.getElementById("playmin4").style.display = "none"
+                // penambahan variabel nama
+                document.getElementById("play3").innerHTML = "Tambah Poin : " + datapemain1
+                // document.getElementById("playmin3").innerHTML = "Kurangi Poin : " + datapemain1
+                document.getElementById("play4").innerHTML = "Tambah Poin : " + datapemain2
+                // document.getElementById("playmin4").innerHTML = "Kurangi Poin : " + datapemain2
+            }
+            SecondHalf()
+        }
+        else if (scoresp1 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let skore1 = document.getElementById("scoreplayer1").innerHTML = scoresp1;
+        }
+    }
+    // end fungsi btn min point for p1
+
+    // fungsi button add point for p2
+    function btn2() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        ++scoresp2;
+        data = scoresp1;
+        if (scoresp2 > 0){
+            document.getElementById("playmin2").style.display = "block";
+            document.getElementById("playmin2").innerHTML = "Kurangi Poin "+datapemain2
+        }
+        if(scoresp2 == 20 && data < 20 || scoresp2 == 21 && data == 20 || scoresp2 == 22 && data == 21 || scoresp2 == 23 && data == 22 || scoresp2 == 24 && data == 23 || scoresp2 == 25 && data == 24 || scoresp2 == 26 && data == 25 || scoresp2 == 27 && data == 26 || scoresp2 == 28 && data == 27 || scoresp2 == 29 && data == 28 || scoresp2 == 29 && data == 29){
+            alert("Game Poin " + datapemain2)
+        }
+        if (scoresp2 == 21 && data <=19 || scoresp2 == 22 && data <=20 || scoresp2 == 23 && data <=21 || scoresp2 == 24 && data <=22 || scoresp2 == 25 && data <=23 || scoresp2 == 26 && data <=24 || scoresp2 == 27 && data <=25 || scoresp2 == 28 && data <=26 || scoresp2 == 29 && data <=27 || scoresp2 == 30 && data == 28 || scoresp2 == 30 && data == 29){
+            // alert("kamu menang " + datapemain2)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 1',
+            'success'
+            )
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayer1").style.display = "block" // pemain 1
+            document.getElementById("repplayer1").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayer2").style.display = "block" // pemain 2
+            document.getElementById("repplayer2").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            
+            var simpanskorep1 = scoresp1;
+            var simpanskorep2 = scoresp2;
+            document.getElementById("scorebabak1").style.display = "block" // angka pemain1
+            document.getElementById("scorebabak1").innerHTML = simpanskorep1; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabak2").style.display = "block" // angka pemain2
+            document.getElementById("scorebabak2").innerHTML = simpanskorep2; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num1").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num2").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num1").innerHTML = scoreset1
+            document.getElementById("num2").innerHTML = scoreset2 
+
+            var scorebabak3 = 0
+            var scorebabak4 = 0
+            function SecondHalf() {
+                // variabel score p1 dan p2
+                document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+                document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+                document.getElementById("play3").style.display = "block"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "block"
+                document.getElementById("playmin4").style.display = "none"
+                // penambahan variabel nama
+                document.getElementById("play3").innerHTML = "Tambah Poin : " + datapemain1
+                document.getElementById("playmin3").innerHTML = "Kurangi Poin : " + datapemain1
+                document.getElementById("play4").innerHTML = "Tambah Poin : " + datapemain2
+                document.getElementById("playmin4").innerHTML = "Kurangi Poin : " + datapemain2
+            }
+            SecondHalf()
+        }
+        else if (scoresp2 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
+        else{
+            let skore2 = document.getElementById("scoreplayer2").innerHTML = scoresp2;
+        }
+    }
+    // end fungsi button add point for p2
+
+    // fungsi button min point for p2
+    function btnk2() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        --scoresp2;
+        data = scoresp1;
+        if (scoresp2 < 1) {
+            // alert("poin pas nol jangan dikurangin")
+            document.getElementById("playmin2").style.display = "none";
+        }
+        if(scoresp2 == 20 && data < 20 || scoresp2 == 21 && data == 20 || scoresp2 == 22 && data == 21 || scoresp2 == 23 && data == 22 || scoresp2 == 24 && data == 23 || scoresp2 == 25 && data == 24 || scoresp2 == 26 && data == 25 || scoresp2 == 27 && data == 26 || scoresp2 == 28 && data == 27 || scoresp2 == 29 && data == 28 || scoresp2 == 29 && data == 29){
+            alert("Game Poin " + datapemain2)
+        }
+        if (scoresp2 == 21 && data <=19 || scoresp2 == 22 && data <=20 || scoresp2 == 23 && data <=21 || scoresp2 == 24 && data <=22 || scoresp2 == 25 && data <=23 || scoresp2 == 26 && data <=24 || scoresp2 == 27 && data <=25 || scoresp2 == 28 && data <=26 || scoresp2 == 29 && data <=27 || scoresp2 == 30 && data == 28 || scoresp2 == 30 && data == 29){
+            // alert("kamu menang " + datapemain2)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 1',
+            'success'
+            )
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayer1").style.display = "block" // pemain 1
+            document.getElementById("repplayer1").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayer2").style.display = "block" // pemain 2
+            document.getElementById("repplayer2").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            
+            var simpanskorep1 = scoresp1;
+            var simpanskorep2 = scoresp2;
+            document.getElementById("scorebabak1").style.display = "block" // angka pemain1
+            document.getElementById("scorebabak1").innerHTML = simpanskorep1; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabak2").style.display = "block" // angka pemain2
+            document.getElementById("scorebabak2").innerHTML = simpanskorep2; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num1").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num2").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num1").innerHTML = scoreset1
+            document.getElementById("num2").innerHTML = scoreset2 
+            
+            var scorebabak3 = 0
+            var scorebabak4 = 0
+            function SecondHalf() {
+                // variabel score p1 dan p2
+                document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+                document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+                document.getElementById("play3").style.display = "block"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "block"
+                document.getElementById("playmin4").style.display = "none"
+                // penambahan variabel nama
+                document.getElementById("play3").innerHTML = "Tambah Poin : " + datapemain1
+                // document.getElementById("playmin3").innerHTML = "Kurangi Poin : " + datapemain1
+                document.getElementById("play4").innerHTML = "Tambah Poin : " + datapemain2
+                // document.getElementById("playmin4").innerHTML = "Kurangi Poin : " + datapemain2
+            }
+            SecondHalf()
+        }
+        else if (scoresp2 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
+        else{
+            let skore2 = document.getElementById("scoreplayer2").innerHTML = scoresp2;
+        }
+    }
+    // fungsi babak ketiga yang akan muncul setelah babak 1 selesai
+    var scorebabak3 = 0;
+    var scorebabak4 = 0;
+    function btn3() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        ++scorebabak3;
+        datas = scorebabak4;
+        if (scorebabak3 > 0){
+            document.getElementById("playmin3").style.display = "block";
+        }
+        if(scorebabak3 == 20 && datas < 20 || scorebabak3 == 21 && datas == 20 || scorebabak3 == 22 && datas == 21 || scorebabak3 == 23 && datas == 22 || scorebabak3 == 24 && datas == 23 || scorebabak3 == 25 && datas == 24 || scorebabak3 == 26 && datas == 25 || scorebabak3 == 27 && datas == 26 || scorebabak3 == 28 && datas == 27 || scorebabak3 == 29 && datas == 28 || scorebabak3 == 29 && datas == 29){
+            alert("Game Poin ")
+        }
+        if (scorebabak3 == 21 && datas <=19 || scorebabak3 == 22 && datas <=20 || scorebabak3 == 23 && datas <=21 || scorebabak3 == 24 && datas <=22 || scorebabak3 == 25 && datas <=23 || scorebabak3 == 26 && datas <=24 || scorebabak3 == 27 && datas <=25 || scorebabak3 == 28 && datas <=26 || scorebabak3 == 29 && datas <=27 || scorebabak3 == 30 && datas == 28 || scorebabak3 == 30 && datas == 29){
+            // alert("kamu menang ")
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 2',
+            'success'
+            )
+            // skore babak 2 pemain1
+            var simpanskorep3 = scorebabak3;
+            var simpanskorep4 = scorebabak4;
+
+            // desain css
+            document.getElementById("repplayerr3").style.display = "block" // pemain 1
+            document.getElementById("repplayerr3").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr4").style.display = "block" // pemain 2
+            document.getElementById("repplayerr4").innerHTML = datapemain2 // nama pemain 2
+            // end dc
+
+            document.getElementById("scorebabakk3").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk3").innerHTML = simpanskorep3; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk4").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk4").innerHTML = simpanskorep4; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num3").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num4").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num3").innerHTML = scoreset1
+            document.getElementById("num4").innerHTML = scoreset2 
+            if (scoreset1 == scoreset2) {
+                Swal.fire({
+                        title: 'Konfirmasi',
+                        text: "kamu mau lanjutin game rubber nggak?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        confirmButtonText: 'Lanjutkan',
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            function RubberGame() {
+                            // variabel score p1 dan p2
+                            document.getElementById("scoreplayer1").innerHTML = scores5;
+                            document.getElementById("scoreplayer2").innerHTML = scores6;
+                            document.getElementById("play3").style.display = "none";
+                            document.getElementById("playmin3").style.display = "none";
+                            document.getElementById("play4").style.display = "none";
+                            document.getElementById("playmin4").style.display = "none";
+                            document.getElementById("play5").style.display = "block"
+                            document.getElementById("playmin5").style.display = "none"
+                            document.getElementById("play6").style.display = "block"
+                            document.getElementById("playmin6").style.display = "none"
+                            // penambahan variabel nama
+                            document.getElementById("play5").innerHTML = "Tambah Poin : " + datapemain1
+                            document.getElementById("playmin5").innerHTML = "Kurangi Poin : " + datapemain1
+                            document.getElementById("play6").innerHTML = "Tambah Poin : " + datapemain2
+                            document.getElementById("playmin6").innerHTML = "Kurangi Poin : " + datapemain2
+                        }
+                        RubberGame()
+                        }
+                        else{
+                            Swal.fire(
+                            'Thank You',
+                            'Terima Kasih Sudah Mencoba Website ini',
+                            'success'
+                            )
+                        }
+                        })
+            }else{
+                console.log("kamu menang")
+            }
+            // end scorebabak2 pemain1
+        }
+        else if (scorebabak3 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let score3 = document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+        }
+    }
+    function btnk3(){
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        --scorebabak3;
+        datas = scorebabak4;
+        if (scorebabak3 < 1) {
+            document.getElementById("playmin3").style.display = "none";
+        }
+        if(scorebabak3 == 20 && datas < 20 || scorebabak3 == 21 && datas == 20 || scorebabak3 == 22 && datas == 21 || scorebabak3 == 23 && datas == 22 || scorebabak3 == 24 && datas == 23 || scorebabak3 == 25 && datas == 24 || scorebabak3 == 26 && datas == 25 || scorebabak3 == 27 && datas == 26 || scorebabak3 == 28 && datas == 27 || scorebabak3 == 29 && datas == 28 || scorebabak3 == 29 && datas == 29){
+            alert("Game Poin ")
+        }
+        if (scorebabak3 == 21 && datas <=19 || scorebabak3 == 22 && datas <=20 || scorebabak3 == 23 && datas <=21 || scorebabak3 == 24 && datas <=22 || scorebabak3 == 25 && datas <=23 || scorebabak3 == 26 && datas <=24 || scorebabak3 == 27 && datas <=25 || scorebabak3 == 28 && datas <=26 || scorebabak3 == 29 && datas <=27 || scorebabak3 == 30 && datas == 28 || scorebabak3 == 30 && datas == 29){
+            // alert("kamu menang ")
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 2',
+            'success'
+            )
+            // skore babak 2 pemain1
+
+            var simpanskorep3 = scorebabak3;
+            var simpanskorep4 = scorebabak4;
+
+            // desain css
+            document.getElementById("repplayerr3").style.display = "block" // pemain 1
+            document.getElementById("repplayerr3").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr4").style.display = "block" // pemain 2
+            document.getElementById("repplayerr4").innerHTML = datapemain2 // nama pemain 2
+            // end dc
+
+            document.getElementById("scorebabakk3").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk3").innerHTML = simpanskorep3; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk4").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk4").innerHTML = simpanskorep4; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num3").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num4").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num3").innerHTML = scoreset1
+            document.getElementById("num4").innerHTML = scoreset2 
+
+            if (scoreset1 == scoreset2) {
+                Swal.fire({
+                        title: 'Konfirmasi',
+                        text: "kamu mau lanjutin game rubber nggak?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        confirmButtonText: 'Lanjutkan',
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            function RubberGame() {
+                            // variabel score p1 dan p2
+                            document.getElementById("scoreplayer1").innerHTML = scores5;
+                            document.getElementById("scoreplayer2").innerHTML = scores6;
+                            document.getElementById("play3").style.display = "none";
+                            document.getElementById("playmin3").style.display = "none";
+                            document.getElementById("play4").style.display = "none";
+                            document.getElementById("playmin4").style.display = "none";
+                            document.getElementById("play5").style.display = "block"
+                            document.getElementById("playmin5").style.display = "none"
+                            document.getElementById("play6").style.display = "block"
+                            document.getElementById("playmin6").style.display = "none"
+                            // penambahan variabel nama
+                            document.getElementById("play5").innerHTML = "Tambah Poin : " + datapemain1
+                            document.getElementById("playmin5").innerHTML = "Kurangi Poin : " + datapemain1
+                            document.getElementById("play6").innerHTML = "Tambah Poin : " + datapemain2
+                            document.getElementById("playmin6").innerHTML = "Kurangi Poin : " + datapemain2
+                        }
+                        RubberGame()
+                        }
+                        else{
+                            Swal.fire(
+                            'Good job!',
+                            'You clicked the button!',
+                            'success'
+                            )
+                        }
+                        })
+            }else{
+                console.log("kamu menang")
+            }
+            // end scorebabak2 pemain1
+        }
+        else if (scorebabak3 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let score3 = document.getElementById("scoreplayer1").innerHTML = scorebabak3;
+        }
+    }
+    // end fungsi babak ketiga yang akan muncul setelah babak 1 selesai
+
+    // fungsi babak keempat yang akan muncul setelah babak 1 selesai
+    function btn4() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        ++scorebabak4;
+        datas = scorebabak3;
+        if (scorebabak4 > 0){
+            document.getElementById("playmin4").style.display = "block";
+        }
+        if(scorebabak4 == 20 && datas < 20 || scorebabak4 == 21 && datas == 20 || scorebabak4 == 22 && datas == 21 || scorebabak4 == 23 && datas == 22 || scorebabak4 == 24 && datas == 23 || scorebabak4 == 25 && datas == 24 || scorebabak4 == 26 && datas == 25 || scorebabak4 == 27 && datas == 26 || scorebabak4 == 28 && datas == 27 || scorebabak4 == 29 && datas == 28 || scorebabak4 == 29 && datas == 29){
+            alert("Game Poin ")
+        }
+        if (scorebabak4 == 21 && datas <=19 || scorebabak4 == 22 && datas <=20 || scorebabak4 == 23 && datas <=21 || scorebabak4 == 24 && datas <=22 || scorebabak4 == 25 && datas <=23 || scorebabak4 == 26 && datas <=24 || scorebabak4 == 27 && datas <=25 || scorebabak4 == 28 && datas <=26 || scorebabak4 == 29 && datas <=27 || scorebabak4 == 30 && datas == 28 || scorebabak4 == 30 && datas == 29){
+            // alert("kamu menang ")
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 2',
+            'success'
+            )
+            // skore babak 2 pemain2
+            var simpanskorep3 = scorebabak3;
+            var simpanskorep4 = scorebabak4;
+            // desain css
+            document.getElementById("repplayerr3").style.display = "block" // pemain 1
+            document.getElementById("repplayerr3").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr4").style.display = "block" // pemain 2
+            document.getElementById("repplayerr4").innerHTML = datapemain2 // nama pemain 2
+            // end dc
+
+            document.getElementById("scorebabakk3").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk3").innerHTML = simpanskorep3; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk4").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk4").innerHTML = simpanskorep4; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num3").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num4").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num3").innerHTML = scoreset1
+            document.getElementById("num4").innerHTML = scoreset2 
+
+            if (scoreset1 == scoreset2) {
+                Swal.fire({
+                        title: 'Konfirmasi',
+                        text: "kamu mau lanjutin game rubber nggak?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        confirmButtonText: 'Lanjutkan',
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            function RubberGame() {
+                            // variabel score p1 dan p2
+                            document.getElementById("scoreplayer1").innerHTML = scores5;
+                            document.getElementById("scoreplayer2").innerHTML = scores6;
+                            document.getElementById("play3").style.display = "none";
+                            document.getElementById("playmin3").style.display = "none";
+                            document.getElementById("play4").style.display = "none";
+                            document.getElementById("playmin4").style.display = "none";
+                            document.getElementById("play5").style.display = "block"
+                            document.getElementById("playmin5").style.display = "none"
+                            document.getElementById("play6").style.display = "block"
+                            document.getElementById("playmin6").style.display = "none"
+                            // penambahan variabel nama
+                            document.getElementById("play5").innerHTML = "Tambah Poin : " + datapemain1
+                            document.getElementById("playmin5").innerHTML = "Kurangi Poin : " + datapemain1
+                            document.getElementById("play6").innerHTML = "Tambah Poin : " + datapemain2
+                            document.getElementById("playmin6").innerHTML = "Kurangi Poin : " + datapemain2
+                        }
+                        RubberGame()
+                        }
+                        else{
+                            Swal.fire(
+                            'Good job!',
+                            'You clicked the button!',
+                            'success',
+                            )
+                        }
+                        })
+            }else{
+                console.log("kamu menang")
+            }
+            // end scorebabak2 pemain2
+        }
+        else if (scorebabak4 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let score4 = document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+        }
+    }
+    function btnk4(){
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        --scorebabak4;
+        datas = scorebabak3;
+        if (scorebabak4 < 1) {
+            document.getElementById("playmin4").style.display = "none";
+        }
+        if(scorebabak4 == 20 && datas < 20 || scorebabak4 == 21 && datas == 20 || scorebabak4 == 22 && datas == 21 || scorebabak4 == 23 && datas == 22 || scorebabak4 == 24 && datas == 23 || scorebabak4 == 25 && datas == 24 || scorebabak4 == 26 && datas == 25 || scorebabak4 == 27 && datas == 26 || scorebabak4 == 28 && datas == 27 || scorebabak4 == 29 && datas == 28 || scorebabak4 == 29 && datas == 29){
+            alert("Game Poin ")
+        }
+        if (scorebabak4 == 21 && datas <=19 || scorebabak4 == 22 && datas <=20 || scorebabak4 == 23 && datas <=21 || scorebabak4 == 24 && datas <=22 || scorebabak4 == 25 && datas <=23 || scorebabak4 == 26 && datas <=24 || scorebabak4 == 27 && datas <=25 || scorebabak4 == 28 && datas <=26 || scorebabak4 == 29 && datas <=27 || scorebabak4 == 30 && datas == 28 || scorebabak4 == 30 && datas == 29){
+            // alert("kamu menang ")
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set 2',
+            'success'
+            )
+            // skore babak 2 pemain2
+            var simpanskorep3 = scorebabak3;
+            var simpanskorep4 = scorebabak4;
+            // desain css
+            document.getElementById("repplayerr3").style.display = "block" // pemain 1
+            document.getElementById("repplayerr3").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr4").style.display = "block" // pemain 2
+            document.getElementById("repplayerr4").innerHTML = datapemain2 // nama pemain 2
+            // end dc
+
+            document.getElementById("scorebabakk3").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk3").innerHTML = simpanskorep3; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk4").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk4").innerHTML = simpanskorep4; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num3").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num4").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num3").innerHTML = scoreset1
+            document.getElementById("num4").innerHTML = scoreset2 
+            if (scoreset1 == scoreset2) {
+                Swal.fire({
+                        title: 'Konfirmasi',
+                        text: "kamu mau lanjutin game rubber nggak?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        confirmButtonText: 'Lanjutkan',
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            function RubberGame() {
+                            // variabel score p1 dan p2
+                            document.getElementById("scoreplayer1").innerHTML = scores5;
+                            document.getElementById("scoreplayer2").innerHTML = scores6;
+                            document.getElementById("play3").style.display = "none";
+                            document.getElementById("playmin3").style.display = "none";
+                            document.getElementById("play4").style.display = "none";
+                            document.getElementById("playmin4").style.display = "none";
+                            document.getElementById("play5").style.display = "block"
+                            document.getElementById("playmin5").style.display = "none"
+                            document.getElementById("play6").style.display = "block"
+                            document.getElementById("playmin6").style.display = "none"
+                            // penambahan variabel nama
+                            document.getElementById("play5").innerHTML = "Tambah Poin : " + datapemain1
+                            document.getElementById("playmin5").innerHTML = "Kurangi Poin : " + datapemain1
+                            document.getElementById("play6").innerHTML = "Tambah Poin : " + datapemain2
+                            document.getElementById("playmin6").innerHTML = "Kurangi Poin : " + datapemain2
+                        }
+                        RubberGame()
+                        }
+                        else{
+                            Swal.fire(
+                            'Good job!',
+                            'You clicked the button!',
+                            'success'
+                            )
+                        }
+                        })
+            }else{
+                console.log("kamu menang")
+            }
+            // end scorebabak2 pemain2
+        }
+        else if (scorebabak4 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let score4 = document.getElementById("scoreplayer2").innerHTML = scorebabak4;
+        }
+    }
+    
+    // note
+    // fungsi ini akan berjalan ketika kondisi lanjut rubber
+    // dengan kata lain pemain jika ingin melanjutkan permainan
+    // ke babak terakhir maka fungsi ini akan di jalankan
+    // end note
+
+    // variabel score 5 dan 6
+    var scores5 = 0
+    var scores6 = 0
+    // end variabel score 5 dan 6
+
+    function btn5() {
+        // alert("testing bos")
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        ++scores5;
+        datas = scores6;
+        if (scores5 > 0){
+            document.getElementById("playmin5").style.display = "block";
+            document.getElementById("playmin5").innerHTML = "Kurangi Poin "+datapemain1
+        }
+        if(scores5 == 20 && datas < 20 || scores5 == 21 && datas == 20 || scores5 == 22 && datas == 21 || scores5 == 23 && datas == 22 || scores5 == 24 && datas == 23 || scores5 == 25 && datas == 24 || scores5 == 26 && datas == 25 || scores5 == 27 && datas == 26 || scores5 == 28 && datas == 27 || scores5 == 29 && datas == 28 || scores5 == 29 && datas == 29){
+            alert("Game Poin " + datapemain1)
+        }
+        if (scores5 == 21 && datas <=19 || scores5 == 22 && datas <=20 || scores5 == 23 && datas <=21 || scores5 == 24 && datas <=22 || scores5 == 25 && datas <=23 || scores5 == 26 && datas <=24 || scores5 == 27 && datas <=25 || scores5 == 28 && datas <=26 || scores5 == 29 && datas <=27 || scores5 == 30 && datas == 28 || scores5 == 30 && datas == 29){
+            // alert("kamu menang " + datapemain1)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set terakhir',
+            'success'
+            )
+            // button 1 hilang
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            var simpanskorep5 = scores5;
+            var simpanskorep6 = scores6;
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayerr5").style.display = "block" // pemain 1
+            document.getElementById("repplayerr5").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr6").style.display = "block" // pemain 2
+            document.getElementById("repplayerr6").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            document.getElementById("scorebabakk5").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk5").innerHTML = simpanskorep5; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk6").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk6").innerHTML = simpanskorep6; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num5").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num6").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num5").innerHTML = scoreset1
+            document.getElementById("num6").innerHTML = scoreset2
+            // document.getElementById("babakkedua").style.display = "block";
+            // ini juga wajib muncul
+            // fungsi babak kedua
+        }   
+        else if (scores5 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let skore1 = document.getElementById("scoreplayer1").innerHTML = scores5;
+        }
+    }
+    function btnk5() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        --scores5;
+        datas = scores6;
+        if (scores5 < 1) {
+            // alert("poin pas nol jangan dikurangin")
+            document.getElementById("playmin5").style.display = "none";
+        }
+        if(scores5 == 20 && datas < 20 || scores5 == 21 && datas == 20 || scores5 == 22 && datas == 21 || scores5 == 23 && datas == 22 || scores5 == 24 && datas == 23 || scores5 == 25 && datas == 24 || scores5 == 26 && datas == 25 || scores5 == 27 && datas == 26 || scores5 == 28 && datas == 27 || scores5 == 29 && datas == 28|| scores5 == 29 && datas == 29){
+            alert("Game Poin " + datapemain1)
+        }
+        if (scores5 == 21 && datas <=19 || scores5 == 22 && datas <=20 || scores5 == 23 && datas <=21 || scores5 == 24 && datas <=22 || scores5 == 25 && datas <=23 || scores5 == 26 && datas <=24 || scores5 == 27 && datas <=25 || scores5 == 28 && datas <=26 || scores5 == 29 && datas <=27|| scores5 == 30 && datas == 28 || scores5 == 30 && datas == 29){
+            // alert("kamu menang " + datapemain1)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set terakhir',
+            'success'
+            )
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            // ini yang muncul
+            var simpanskorep5 = scores5;
+            var simpanskorep6 = scores6;
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayerr5").style.display = "block" // pemain 1
+            document.getElementById("repplayerr5").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr6").style.display = "block" // pemain 2
+            document.getElementById("repplayerr6").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            document.getElementById("scorebabakk5").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk5").innerHTML = simpanskorep5; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk6").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk6").innerHTML = simpanskorep6; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset1;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num5").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num6").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num5").innerHTML = scoreset1
+            document.getElementById("num6").innerHTML = scoreset2
+        }
+        else if (scores5 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
+        else{
+            let skore1 = document.getElementById("scoreplayer1").innerHTML = scores5;
+        }
+    }
+    function btn6() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        // alert("testing bosss")
+        ++scores6;
+        data = scores5;
+        if (scores6 > 0){
+            document.getElementById("playmin6").style.display = "block";
+            document.getElementById("playmin6").innerHTML = "Kurangi Poin "+datapemain2
+        }
+        if(scores6 == 20 && data < 20 || scores6 == 21 && data == 20 || scores6 == 22 && data == 21 || scores6 == 23 && data == 22 || scores6 == 24 && data == 23 || scores6 == 25 && data == 24 || scores6 == 26 && data == 25 || scores6 == 27 && data == 26 || scores6 == 28 && data == 27 || scores6 == 29 && data == 28 || scores6 == 29 && data == 29){
+            alert("Game Poin " + datapemain2)
+        }
+        if (scores6 == 21 && data <=19 || scores6 == 22 && data <=20 || scores6 == 23 && data <=21 || scores6 == 24 && data <=22 || scores6 == 25 && data <=23 || scores6 == 26 && data <=24 || scores6 == 27 && data <=25 || scores6 == 28 && data <=26 || scores6 == 29 && data <=27 || scores6 == 30 && data == 28 || scores6 == 30 && data == 29){
+            // alert("kamu menang " + datapemain2)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set terakhir',
+            'success'
+            )
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            var simpanskorep5 = scores5;
+            var simpanskorep6 = scores6;
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayerr5").style.display = "block" // pemain 1
+            document.getElementById("repplayerr5").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr6").style.display = "block" // pemain 2
+            document.getElementById("repplayerr6").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            document.getElementById("scorebabakk5").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk5").innerHTML = simpanskorep5; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk6").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk6").innerHTML = simpanskorep6; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num5").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num6").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num5").innerHTML = scoreset1
+            document.getElementById("num6").innerHTML = scoreset2
+        }
+        else if (scores6 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
+        else{
+            let skore2 = document.getElementById("scoreplayer2").innerHTML = scores6;
+        }
+    }
+    function btnk6() {
+        var datapemain1 = document.getElementById("player1").value;
+        var datapemain2 = document.getElementById("player2").value;
+        // alert("testing bosssss")
+        --scores6;
+        data = scores5;
+        if (scores6 < 1) {
+            // alert("poin pas nol jangan dikurangin")
+            document.getElementById("playmin6").style.display = "none";
+        }
+        if(scores6 == 20 && data < 20 || scores6 == 21 && data == 20 || scores6 == 22 && data == 21 || scores6 == 23 && data == 22 || scores6 == 24 && data == 23 || scores6 == 25 && data == 24 || scores6 == 26 && data == 25 || scores6 == 27 && data == 26 || scores6 == 28 && data == 27 || scores6 == 29 && data == 28 || scores6 == 29 && data == 29){
+            alert("Game Poin " + datapemain2)
+        }
+        if (scores6 == 21 && data <=19 || scores6 == 22 && data <=20 || scores6 == 23 && data <=21 || scores6 == 24 && data <=22 || scores6 == 25 && data <=23 || scores6 == 26 && data <=24 || scores6 == 27 && data <=25 || scores6 == 28 && data <=26 || scores6 == 29 && data <=27 || scores6 == 30 && data == 28 || scores6 == 30 && data == 29){
+            // alert("kamu menang " + datapemain2)
+            Swal.fire(
+            'Selamat',
+            'Kamu memenangkan set terakhir',
+            'success'
+            )
+            document.getElementById("playmin1").style.display = "none";
+            document.getElementById("play1").style.display = "none";
+            // button 2 hilang juga
+            document.getElementById("playmin2").style.display = "none";
+            document.getElementById("play2").style.display = "none";
+            // ini wajib hilang wkwk
+            document.getElementById("buttonsubmit").style.display = "none";
+            // ini yang muncul
+            var simpanskorep5 = scores5;
+            var simpanskorep6 = scores6;
+            // untuk hasil report pertandingan babak 1
+            document.getElementById("repplayerr5").style.display = "block" // pemain 1
+            document.getElementById("repplayerr5").innerHTML = datapemain1 // nama pemain 1
+            document.getElementById("repplayerr6").style.display = "block" // pemain 2
+            document.getElementById("repplayerr6").innerHTML = datapemain2 // nama pemain 2
+            // end baris 238
+            document.getElementById("scorebabakk5").style.display = "block" // angka pemain1
+            document.getElementById("scorebabakk5").innerHTML = simpanskorep5; // untuk menyimpan angka yang didapat oleh player 1
+            document.getElementById("scorebabakk6").style.display = "block" // angka pemain2
+            document.getElementById("scorebabakk6").innerHTML = simpanskorep6; // untuk menyimpan angka yang didapat oleh player 2
+            // console.log("Babak Pertama : " + simpanskorep1 + " " + simpanskorep2)
+            ++scoreset2;
+            // console.log(scoreset1 + ":" + scoreset2)
+            document.getElementById("num5").style.display = "block" // angka 1/0 untuk angka p1
+            document.getElementById("num6").style.display = "block" // angka 1/0 untuk angka p2
+            document.getElementById("num5").innerHTML = scoreset1
+            document.getElementById("num6").innerHTML = scoreset2
+        }
+        else if (scores6 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
+        else{
+            let skore2 = document.getElementById("scoreplayer2").innerHTML = scores6;
+        }
+    }
+    // end fungsi babak keempat yang akan muncul setelah babak 1 selesai
+
+</script>
+<!-- javascript end -->
+
+<!-- library sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet"></link>
+<!-- library sweet alert males convert ke htmlnya -->
+
+<!-- css start -->
+<style>
+    .skore{
+        font-size: 70px;
+        font-weight: 800;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+<!-- css end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
