@@ -75,6 +75,9 @@
 <!-- data pemain vs pemain start -->
 <div class="container mt-4 mb-4">
     <h2 class="text-center text-capitalize">Data Pemain</h2>
+    <!-- start kondisi ketika data pemain belum di isi -->
+    <div class="alert alert-danger my-3" id="empty">Data Masih Kosong</div>
+    <!-- end kondisi ketika data pemain belum di isi  -->
     <div class="row text-center">
         <div class="col-lg-4" id="kolom1">
             <h2 id="dataplayer1" class="text-uppercase"></h2>
@@ -90,7 +93,7 @@
             <a class="btn btn-outline-success my-3 text-capitalize" id="playmin5" onclick="btnk5()" style="display: none;"><strong id="datap1"></strong></a>
         </div>
         <div class="col-lg-4">
-        <h2 class="text-uppercase" id="vs" style="display: none;">vs</h2>
+        <h2 class="text-uppercase skore" id="vs" style="display: none;">vs</h2>
         </div>
         <div class="col-lg-4" id="kolom2">
             <h2 id="dataplayer2" class="text-uppercase"></h2>
@@ -114,12 +117,15 @@
 <div class="container mt-4 mb-4 pt-2 pb-2">
     <h1 class="text-center text-capitalize">report game</h1>
     <p class="text-center">hasil pertandingan dari babak 1 Hingga Babak 2 / 3</p>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="info" style="display: none;">
     <strong>Keterangan</strong> Yang Warna Hijau Adalah Pemain 1 Dan yang Merah Adalah Pemain 2
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <!-- start kondisi ketika data pemain belum di isi -->
+    <div class="alert alert-danger my-3" id="emptyy">Data Masih Kosong</div>
+    <!-- end kondisi ketika data pemain belum di isi  -->
     <div class="row mt-4">
-    <div class="col-sm-4 mb-3 mb-sm-0">
+    <div class="col-sm-4 mb-3 mb-sm-0" id="reportinfo" style="display: none;">
         <div class="card">
             <div class="card-header">
                 Babak 1
@@ -149,7 +155,7 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-4 mb-3 mb-sm-0">
+    <div class="col-sm-4 mb-3 mb-sm-0" id="reportinfo1" style="display: none;">
         <div class="card">
             <div class="card-header">
                 Babak 2
@@ -179,7 +185,7 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" id="reportinfo2" style="display: none;">
         <div class="card">
             <div class="card-header">
                 Babak 3
@@ -226,7 +232,8 @@
         1.Dilarang Mencurangi/Memanipulasi Poin Pemain 1 Dan 2
         2.Dilarang Memberikan Inputan Pemain 1 dan 2 dalam keadaan Kosong<br>
         3.Dilarang Menyamakan pemain 1 dan pemain 2<br>
-        4.Jika Pemain Memiliki Nama Yang Sama Harus Menggunakan Pembeda Untuk Dapat Di Mengerti
+        4.Jika Pemain Memiliki Nama Yang Sama Harus Menggunakan Pembeda Untuk Dapat Di Mengerti<br>
+        5.Jika Angka Sama 20-20 Jika Angka Pemain 1 dan 2 19-20 yang seharusnya 20-20 jangan khawatir itu karena adanya pencegahan angka untuk melanjutkan ke angka selanjutnya yaitu 21-20 / 20-21 begitu juga seterusnya
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">Close</button>

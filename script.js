@@ -18,6 +18,12 @@
             document.getElementById("play2").style.display = "none"
             document.getElementById("scorebabak1").style.display = "none"
             document.getElementById("scorebabak2").style.display = "none"
+            document.getElementById("empty").style.display = "block"
+            document.getElementById("emptyy").style.display = "block"
+            document.getElementById("info").style.display = "none"
+            document.getElementById("reportinfo").style.display = "none"
+            document.getElementById("reportinfo1").style.display = "none"
+            document.getElementById("reportinfo2").style.display = "none"
         }else if(datapemain1 == datapemain2){
             document.getElementById("validasi").style.display = "block"
             document.getElementById("validasi").innerHTML = "jangan sama dong player 1 dan 2"
@@ -27,6 +33,12 @@
             document.getElementById("play2").style.display = "none"
             document.getElementById("scorebabak1").style.display = "none"
             document.getElementById("scorebabak2").style.display = "none"
+            document.getElementById("empty").style.display = "block"
+            document.getElementById("emptyy").style.display = "block"
+            document.getElementById("info").style.display = "none"
+            document.getElementById("reportinfo").style.display = "none"
+            document.getElementById("reportinfo1").style.display = "none"
+            document.getElementById("reportinfo2").style.display = "none"
         }else{
             let d1 = document.getElementById("dataplayer1").innerHTML = datapemain1;
             const smbl = document.getElementById("vs").style.display = "block";
@@ -40,6 +52,12 @@
             document.getElementById("scorebabak2").style.display = "none"
             document.getElementById("datap1").innerHTML = datapemain1
             document.getElementById("datap2").innerHTML = datapemain2
+            document.getElementById("empty").style.display = "none"
+            document.getElementById("emptyy").style.display = "none"
+            document.getElementById("info").style.display = "block"
+            document.getElementById("reportinfo").style.display = "block"
+            document.getElementById("reportinfo1").style.display = "block"
+            document.getElementById("reportinfo2").style.display = "block"
         }
     }
     // variabel score p1 dan p2
