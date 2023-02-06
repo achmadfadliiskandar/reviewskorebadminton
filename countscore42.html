@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comming Soon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-capitalize" href="index.html">Hitung Skor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-light text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hitung Score</h5>
+            <button type="button" class="btn btn-dark text-light" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+        </div>
+        <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Aturan
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Penghitungan Skore Selain Poin 21
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="countscore30.html">Hitung Skore Poin 30</a></li>
+            <!-- pembatas -->
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="countscore42.html">Hitung Skore Poin 42</a></li>
+            </ul>
+        </li>
+        </ul>
+    </div>
+    </div>
+</div>
+</nav>    
+<!-- end navbar -->
+
+<!-- container content coming soon -->
+<div class="container">
+    <h1>Coming Soon</h1>
+    <p>Our website is under construction. Please check back soon for updates.</p>
+</div>
+<!-- end container comming soon -->
+
+<!-- footer adalah hak cipta start -->
+<footer class="bg-dark py-4 text-light">
+    <div class="container">
+    <p class="text-center">Copyright &copy; Hitung Score <span id="tahun"></span> Made With &#10084; Achmad Fadli Iskandar - Muhammad Fadlan Iskandar</p>
+    </div>
+</footer>
+<!-- footer adalah hak cipta end -->
+
+<!-- link javascript -->
+<script src="script.js"></script>
+<!-- link javascript -->
+
+<!-- library sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet"></link>
+<!-- library sweet alert males convert ke htmlnya -->
+
+<!-- css start -->
+<style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* text-align: center; */
+}
+/* Add some basic styles for the text */
+h1,p{
+    text-align: center;
+}
+h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-top: 12rem;
+}
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+footer{
+    width: 100%;
+    margin-top: auto;
+}
+</style>
+<!-- css end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
