@@ -457,11 +457,18 @@
                         RubberGame()
                         }
                         else{
-                            Swal.fire(
-                            'Thank You',
-                            'Terima Kasih Sudah Mencoba Website ini',
-                            'success'
-                            )
+                            Swal.fire({
+                                title:'Thank You',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                icon:'success',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            })
+                            const greetback = setTimeout(FuncEnd,5000)
+                            function FuncEnd() {
+                                location.reload()
+                            }
                         }
                         })
             }else{
@@ -552,11 +559,18 @@
                         RubberGame()
                         }
                         else{
-                            Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success'
-                            )
+                            Swal.fire({
+                                title:'Thank You',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                icon:'success',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            })
+                            const greetback = setTimeout(FuncEnd,5000)
+                            function FuncEnd() {
+                                location.reload()
+                            }
                         }
                         })
             }else{
@@ -648,11 +662,18 @@
                         RubberGame()
                         }
                         else{
-                            Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success',
-                            )
+                            Swal.fire({
+                                title:'Thank You',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                icon:'success',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            })
+                            const greetback = setTimeout(FuncEnd,5000)
+                            function FuncEnd() {
+                                location.reload()
+                            }
                         }
                         })
             }else{
@@ -740,11 +761,18 @@
                         RubberGame()
                         }
                         else{
-                            Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success'
-                            )
+                            Swal.fire({
+                                title:'Thank You',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                icon:'success',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            })
+                            const greetback = setTimeout(FuncEnd,5000)
+                            function FuncEnd() {
+                                location.reload()
+                            }
                         }
                         })
             }else{
