@@ -83,6 +83,9 @@
         if(scoresp1 == 20 && datas < 20 || scoresp1 == 21 && datas == 20 || scoresp1 == 22 && datas == 21 || scoresp1 == 23 && datas == 22 || scoresp1 == 24 && datas == 23 || scoresp1 == 25 && datas == 24 || scoresp1 == 26 && datas == 25 || scoresp1 == 27 && datas == 26 || scoresp1 == 28 && datas == 27 || scoresp1 == 29 && datas == 28 || scoresp1 == 29 && datas == 29){
             alert("Game Poin " + datapemain1)
         }
+        if (scoresp1 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
         if (scoresp1 == 21 && datas <=19 || scoresp1 == 22 && datas <=20 || scoresp1 == 23 && datas <=21 || scoresp1 == 24 && datas <=22 || scoresp1 == 25 && datas <=23 || scoresp1 == 26 && datas <=24 || scoresp1 == 27 && datas <=25 || scoresp1 == 28 && datas <=26 || scoresp1 == 29 && datas <=27 || scoresp1 == 30 && datas == 28 || scoresp1 == 30 && datas == 29){
             // alert("kamu menang " + datapemain1)
             Swal.fire(
@@ -141,10 +144,8 @@
             }
             SecondHalf()
             // fungsi babak kedua
-        }   
-        else if (scoresp1 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
         }
+
         else{
             let skore1 = document.getElementById("scoreplayer1").innerHTML = scoresp1;
         }
@@ -163,6 +164,9 @@
         }
         if(scoresp1 == 20 && datas < 20 || scoresp1 == 21 && datas == 20 || scoresp1 == 22 && datas == 21 || scoresp1 == 23 && datas == 22 || scoresp1 == 24 && datas == 23 || scoresp1 == 25 && datas == 24 || scoresp1 == 26 && datas == 25 || scoresp1 == 27 && datas == 26 || scoresp1 == 28 && datas == 27 || scoresp1 == 29 && datas == 28|| scoresp1 == 29 && datas == 29){
             alert("Game Poin " + datapemain1)
+        }
+        if (scoresp1 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
         }
         if (scoresp1 == 21 && datas <=19 || scoresp1 == 22 && datas <=20 || scoresp1 == 23 && datas <=21 || scoresp1 == 24 && datas <=22 || scoresp1 == 25 && datas <=23 || scoresp1 == 26 && datas <=24 || scoresp1 == 27 && datas <=25 || scoresp1 == 28 && datas <=26 || scoresp1 == 29 && datas <=27|| scoresp1 == 30 && datas == 28 || scoresp1 == 30 && datas == 29){
             // alert("kamu menang " + datapemain1)
@@ -219,9 +223,7 @@
             }
             SecondHalf()
         }
-        else if (scoresp1 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+
         else{
             let skore1 = document.getElementById("scoreplayer1").innerHTML = scoresp1;
         }
@@ -240,6 +242,9 @@
         }
         if(scoresp2 == 20 && data < 20 || scoresp2 == 21 && data == 20 || scoresp2 == 22 && data == 21 || scoresp2 == 23 && data == 22 || scoresp2 == 24 && data == 23 || scoresp2 == 25 && data == 24 || scoresp2 == 26 && data == 25 || scoresp2 == 27 && data == 26 || scoresp2 == 28 && data == 27 || scoresp2 == 29 && data == 28 || scoresp2 == 29 && data == 29){
             alert("Game Poin " + datapemain2)
+        }
+        if (scoresp2 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
         }
         if (scoresp2 == 21 && data <=19 || scoresp2 == 22 && data <=20 || scoresp2 == 23 && data <=21 || scoresp2 == 24 && data <=22 || scoresp2 == 25 && data <=23 || scoresp2 == 26 && data <=24 || scoresp2 == 27 && data <=25 || scoresp2 == 28 && data <=26 || scoresp2 == 29 && data <=27 || scoresp2 == 30 && data == 28 || scoresp2 == 30 && data == 29){
             // alert("kamu menang " + datapemain2)
@@ -296,9 +301,7 @@
             }
             SecondHalf()
         }
-        else if (scoresp2 == 20 && data == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
-        }
+
         else{
             let skore2 = document.getElementById("scoreplayer2").innerHTML = scoresp2;
         }
@@ -317,6 +320,9 @@
         }
         if(scoresp2 == 20 && data < 20 || scoresp2 == 21 && data == 20 || scoresp2 == 22 && data == 21 || scoresp2 == 23 && data == 22 || scoresp2 == 24 && data == 23 || scoresp2 == 25 && data == 24 || scoresp2 == 26 && data == 25 || scoresp2 == 27 && data == 26 || scoresp2 == 28 && data == 27 || scoresp2 == 29 && data == 28 || scoresp2 == 29 && data == 29){
             alert("Game Poin " + datapemain2)
+        }
+        if (scoresp2 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
         }
         if (scoresp2 == 21 && data <=19 || scoresp2 == 22 && data <=20 || scoresp2 == 23 && data <=21 || scoresp2 == 24 && data <=22 || scoresp2 == 25 && data <=23 || scoresp2 == 26 && data <=24 || scoresp2 == 27 && data <=25 || scoresp2 == 28 && data <=26 || scoresp2 == 29 && data <=27 || scoresp2 == 30 && data == 28 || scoresp2 == 30 && data == 29){
             // alert("kamu menang " + datapemain2)
@@ -373,7 +379,7 @@
             }
             SecondHalf()
         }
-        else if (scoresp2 == 20 && data == 20) {
+        if (scoresp2 == 20 && data == 20) {
             alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
         }
         else{
@@ -394,6 +400,9 @@
         if(scorebabak3 == 20 && datas < 20 || scorebabak3 == 21 && datas == 20 || scorebabak3 == 22 && datas == 21 || scorebabak3 == 23 && datas == 22 || scorebabak3 == 24 && datas == 23 || scorebabak3 == 25 && datas == 24 || scorebabak3 == 26 && datas == 25 || scorebabak3 == 27 && datas == 26 || scorebabak3 == 28 && datas == 27 || scorebabak3 == 29 && datas == 28 || scorebabak3 == 29 && datas == 29){
             alert("Game Poin ")
         }
+        if (scorebabak3 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
         if (scorebabak3 == 21 && datas <=19 || scorebabak3 == 22 && datas <=20 || scorebabak3 == 23 && datas <=21 || scorebabak3 == 24 && datas <=22 || scorebabak3 == 25 && datas <=23 || scorebabak3 == 26 && datas <=24 || scorebabak3 == 27 && datas <=25 || scorebabak3 == 28 && datas <=26 || scorebabak3 == 29 && datas <=27 || scorebabak3 == 30 && datas == 28 || scorebabak3 == 30 && datas == 29){
             // alert("kamu menang ")
             Swal.fire(
@@ -476,9 +485,7 @@
             }
             // end scorebabak2 pemain1
         }
-        else if (scorebabak3 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+
         else{
             let score3 = document.getElementById("scoreplayer1").innerHTML = scorebabak3;
         }
@@ -494,6 +501,9 @@
         if(scorebabak3 == 20 && datas < 20 || scorebabak3 == 21 && datas == 20 || scorebabak3 == 22 && datas == 21 || scorebabak3 == 23 && datas == 22 || scorebabak3 == 24 && datas == 23 || scorebabak3 == 25 && datas == 24 || scorebabak3 == 26 && datas == 25 || scorebabak3 == 27 && datas == 26 || scorebabak3 == 28 && datas == 27 || scorebabak3 == 29 && datas == 28 || scorebabak3 == 29 && datas == 29){
             alert("Game Poin ")
         }
+        if (scorebabak3 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
         if (scorebabak3 == 21 && datas <=19 || scorebabak3 == 22 && datas <=20 || scorebabak3 == 23 && datas <=21 || scorebabak3 == 24 && datas <=22 || scorebabak3 == 25 && datas <=23 || scorebabak3 == 26 && datas <=24 || scorebabak3 == 27 && datas <=25 || scorebabak3 == 28 && datas <=26 || scorebabak3 == 29 && datas <=27 || scorebabak3 == 30 && datas == 28 || scorebabak3 == 30 && datas == 29){
             // alert("kamu menang ")
             Swal.fire(
@@ -578,9 +588,7 @@
             }
             // end scorebabak2 pemain1
         }
-        else if (scorebabak3 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+
         else{
             let score3 = document.getElementById("scoreplayer1").innerHTML = scorebabak3;
         }
@@ -599,6 +607,9 @@
         if(scorebabak4 == 20 && datas < 20 || scorebabak4 == 21 && datas == 20 || scorebabak4 == 22 && datas == 21 || scorebabak4 == 23 && datas == 22 || scorebabak4 == 24 && datas == 23 || scorebabak4 == 25 && datas == 24 || scorebabak4 == 26 && datas == 25 || scorebabak4 == 27 && datas == 26 || scorebabak4 == 28 && datas == 27 || scorebabak4 == 29 && datas == 28 || scorebabak4 == 29 && datas == 29){
             alert("Game Poin ")
         }
+        if (scorebabak4 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
         if (scorebabak4 == 21 && datas <=19 || scorebabak4 == 22 && datas <=20 || scorebabak4 == 23 && datas <=21 || scorebabak4 == 24 && datas <=22 || scorebabak4 == 25 && datas <=23 || scorebabak4 == 26 && datas <=24 || scorebabak4 == 27 && datas <=25 || scorebabak4 == 28 && datas <=26 || scorebabak4 == 29 && datas <=27 || scorebabak4 == 30 && datas == 28 || scorebabak4 == 30 && datas == 29){
             // alert("kamu menang ")
             Swal.fire(
@@ -681,9 +692,7 @@
             }
             // end scorebabak2 pemain2
         }
-        else if (scorebabak4 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+
         else{
             let score4 = document.getElementById("scoreplayer2").innerHTML = scorebabak4;
         }
@@ -699,6 +708,9 @@
         if(scorebabak4 == 20 && datas < 20 || scorebabak4 == 21 && datas == 20 || scorebabak4 == 22 && datas == 21 || scorebabak4 == 23 && datas == 22 || scorebabak4 == 24 && datas == 23 || scorebabak4 == 25 && datas == 24 || scorebabak4 == 26 && datas == 25 || scorebabak4 == 27 && datas == 26 || scorebabak4 == 28 && datas == 27 || scorebabak4 == 29 && datas == 28 || scorebabak4 == 29 && datas == 29){
             alert("Game Poin ")
         }
+        if (scorebabak4 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
+        }
         if (scorebabak4 == 21 && datas <=19 || scorebabak4 == 22 && datas <=20 || scorebabak4 == 23 && datas <=21 || scorebabak4 == 24 && datas <=22 || scorebabak4 == 25 && datas <=23 || scorebabak4 == 26 && datas <=24 || scorebabak4 == 27 && datas <=25 || scorebabak4 == 28 && datas <=26 || scorebabak4 == 29 && datas <=27 || scorebabak4 == 30 && datas == 28 || scorebabak4 == 30 && datas == 29){
             // alert("kamu menang ")
             Swal.fire(
@@ -780,9 +792,7 @@
             }
             // end scorebabak2 pemain2
         }
-        else if (scorebabak4 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+        
         else{
             let score4 = document.getElementById("scoreplayer2").innerHTML = scorebabak4;
         }
@@ -811,6 +821,9 @@
         }
         if(scores5 == 20 && datas < 20 || scores5 == 21 && datas == 20 || scores5 == 22 && datas == 21 || scores5 == 23 && datas == 22 || scores5 == 24 && datas == 23 || scores5 == 25 && datas == 24 || scores5 == 26 && datas == 25 || scores5 == 27 && datas == 26 || scores5 == 28 && datas == 27 || scores5 == 29 && datas == 28 || scores5 == 29 && datas == 29){
             alert("Game Poin " + datapemain1)
+        }
+        if (scores5 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
         }
         if (scores5 == 21 && datas <=19 || scores5 == 22 && datas <=20 || scores5 == 23 && datas <=21 || scores5 == 24 && datas <=22 || scores5 == 25 && datas <=23 || scores5 == 26 && datas <=24 || scores5 == 27 && datas <=25 || scores5 == 28 && datas <=26 || scores5 == 29 && datas <=27 || scores5 == 30 && datas == 28 || scores5 == 30 && datas == 29){
             // alert("kamu menang " + datapemain1)
@@ -851,9 +864,7 @@
             // ini juga wajib muncul
             // fungsi babak kedua
         }   
-        else if (scores5 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+        
         else{
             let skore1 = document.getElementById("scoreplayer1").innerHTML = scores5;
         }
@@ -869,6 +880,9 @@
         }
         if(scores5 == 20 && datas < 20 || scores5 == 21 && datas == 20 || scores5 == 22 && datas == 21 || scores5 == 23 && datas == 22 || scores5 == 24 && datas == 23 || scores5 == 25 && datas == 24 || scores5 == 26 && datas == 25 || scores5 == 27 && datas == 26 || scores5 == 28 && datas == 27 || scores5 == 29 && datas == 28|| scores5 == 29 && datas == 29){
             alert("Game Poin " + datapemain1)
+        }
+        if (scores5 == 20 && datas == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
         }
         if (scores5 == 21 && datas <=19 || scores5 == 22 && datas <=20 || scores5 == 23 && datas <=21 || scores5 == 24 && datas <=22 || scores5 == 25 && datas <=23 || scores5 == 26 && datas <=24 || scores5 == 27 && datas <=25 || scores5 == 28 && datas <=26 || scores5 == 29 && datas <=27|| scores5 == 30 && datas == 28 || scores5 == 30 && datas == 29){
             // alert("kamu menang " + datapemain1)
@@ -906,9 +920,7 @@
             document.getElementById("num5").innerHTML = scoreset1
             document.getElementById("num6").innerHTML = scoreset2
         }
-        else if (scores5 == 20 && datas == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesakan)")
-        }
+        
         else{
             let skore1 = document.getElementById("scoreplayer1").innerHTML = scores5;
         }
@@ -926,6 +938,9 @@
         if(scores6 == 20 && data < 20 || scores6 == 21 && data == 20 || scores6 == 22 && data == 21 || scores6 == 23 && data == 22 || scores6 == 24 && data == 23 || scores6 == 25 && data == 24 || scores6 == 26 && data == 25 || scores6 == 27 && data == 26 || scores6 == 28 && data == 27 || scores6 == 29 && data == 28 || scores6 == 29 && data == 29){
             alert("Game Poin " + datapemain2)
         }
+        if (scores6 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
         if (scores6 == 21 && data <=19 || scores6 == 22 && data <=20 || scores6 == 23 && data <=21 || scores6 == 24 && data <=22 || scores6 == 25 && data <=23 || scores6 == 26 && data <=24 || scores6 == 27 && data <=25 || scores6 == 28 && data <=26 || scores6 == 29 && data <=27 || scores6 == 30 && data == 28 || scores6 == 30 && data == 29){
             // alert("kamu menang " + datapemain2)
             Swal.fire(
@@ -961,9 +976,7 @@
             document.getElementById("num5").innerHTML = scoreset1
             document.getElementById("num6").innerHTML = scoreset2
         }
-        else if (scores6 == 20 && data == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
-        }
+        
         else{
             let skore2 = document.getElementById("scoreplayer2").innerHTML = scores6;
         }
@@ -981,6 +994,9 @@
         if(scores6 == 20 && data < 20 || scores6 == 21 && data == 20 || scores6 == 22 && data == 21 || scores6 == 23 && data == 22 || scores6 == 24 && data == 23 || scores6 == 25 && data == 24 || scores6 == 26 && data == 25 || scores6 == 27 && data == 26 || scores6 == 28 && data == 27 || scores6 == 29 && data == 28 || scores6 == 29 && data == 29){
             alert("Game Poin " + datapemain2)
         }
+        if (scores6 == 20 && data == 20) {
+            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
+        }
         if (scores6 == 21 && data <=19 || scores6 == 22 && data <=20 || scores6 == 23 && data <=21 || scores6 == 24 && data <=22 || scores6 == 25 && data <=23 || scores6 == 26 && data <=24 || scores6 == 27 && data <=25 || scores6 == 28 && data <=26 || scores6 == 29 && data <=27 || scores6 == 30 && data == 28 || scores6 == 30 && data == 29){
             // alert("kamu menang " + datapemain2)
             Swal.fire(
@@ -1016,9 +1032,7 @@
             document.getElementById("num5").innerHTML = scoreset1
             document.getElementById("num6").innerHTML = scoreset2
         }
-        else if (scores6 == 20 && data == 20) {
-            alert("kalian just ( tambahkan dua poin untuk menyelesaikan)")
-        }
+
         else{
             let skore2 = document.getElementById("scoreplayer2").innerHTML = scores6;
         }
