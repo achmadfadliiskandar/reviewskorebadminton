@@ -475,13 +475,13 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
                                 icon:'success',
-                                allowEscapeKey: false,
-                                allowOutsideClick: false,
-                                showConfirmButton: false,
+                                // allowEscapeKey: false,
+                                // allowOutsideClick: false,
+                                // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,5000)
+                            const greetback = setTimeout(FuncEnd,12000)
                             function FuncEnd() {
                                 location.reload()
                             }
@@ -589,13 +589,13 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
                                 icon:'success',
-                                allowEscapeKey: false,
-                                allowOutsideClick: false,
-                                showConfirmButton: false,
+                                // allowEscapeKey: false,
+                                // allowOutsideClick: false,
+                                // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,5000)
+                            const greetback = setTimeout(FuncEnd,12000)
                             function FuncEnd() {
                                 location.reload()
                             }
@@ -704,13 +704,13 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
                                 icon:'success',
-                                allowEscapeKey: false,
-                                allowOutsideClick: false,
-                                showConfirmButton: false,
+                                // allowEscapeKey: false,
+                                // allowOutsideClick: false,
+                                // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,5000)
+                            const greetback = setTimeout(FuncEnd,12000)
                             function FuncEnd() {
                                 location.reload()
                             }
@@ -815,13 +815,13 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
                                 icon:'success',
-                                allowEscapeKey: false,
-                                allowOutsideClick: false,
-                                showConfirmButton: false,
+                                // allowEscapeKey: false,
+                                // allowOutsideClick: false,
+                                // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,5000)
+                            const greetback = setTimeout(FuncEnd,12000)
                             function FuncEnd() {
                                 location.reload()
                             }
