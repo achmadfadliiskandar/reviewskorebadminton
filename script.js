@@ -410,6 +410,13 @@
             'Kamu memenangkan set 2',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play3").style.display = "none"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "none"   
+                document.getElementById("playmin4").style.display = "none"
+            }
+            disabledButton()
             // skore babak 2 pemain1
             var simpanskorep3 = scorebabak3;
             var simpanskorep4 = scorebabak4;
@@ -481,7 +488,11 @@
                         }
                         })
             }else{
-                alert("kamu menang")
+                Swal.fire(
+                    'Selamat',
+                    'Kamu memenangkan set 2',
+                    'success'
+                    )
             }
             // end scorebabak2 pemain1
         }
@@ -511,6 +522,13 @@
             'Kamu memenangkan set 2',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play3").style.display = "none"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "none"   
+                document.getElementById("playmin4").style.display = "none"
+            }
+            disabledButton()
             // skore babak 2 pemain1
 
             var simpanskorep3 = scorebabak3;
@@ -584,7 +602,11 @@
                         }
                         })
             }else{
-                alert("kamu menang")
+                Swal.fire(
+                    'Selamat',
+                    'Kamu memenangkan set 2',
+                    'success'
+                    )
             }
             // end scorebabak2 pemain1
         }
@@ -617,6 +639,13 @@
             'Kamu memenangkan set 2',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play3").style.display = "none"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "none"   
+                document.getElementById("playmin4").style.display = "none"
+            }
+            disabledButton()
             // skore babak 2 pemain2
             var simpanskorep3 = scorebabak3;
             var simpanskorep4 = scorebabak4;
@@ -688,7 +717,11 @@
                         }
                         })
             }else{
-                alert("kamu menang")
+                Swal.fire(
+                    'Selamat',
+                    'Kamu memenangkan set 2',
+                    'success'
+                    )
             }
             // end scorebabak2 pemain2
         }
@@ -718,6 +751,13 @@
             'Kamu memenangkan set 2',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play3").style.display = "none"
+                document.getElementById("playmin3").style.display = "none"
+                document.getElementById("play4").style.display = "none"   
+                document.getElementById("playmin4").style.display = "none"
+            }
+            disabledButton()
             // skore babak 2 pemain2
             var simpanskorep3 = scorebabak3;
             var simpanskorep4 = scorebabak4;
@@ -788,7 +828,11 @@
                         }
                         })
             }else{
-                alert("kamu menang")
+                Swal.fire(
+                    'Selamat',
+                    'Kamu memenangkan set 2',
+                    'success'
+                    )
             }
             // end scorebabak2 pemain2
         }
@@ -832,6 +876,13 @@
             'Kamu memenangkan set terakhir',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play5").style.display = "none"
+                document.getElementById("playmin5").style.display = "none"
+                document.getElementById("play6").style.display = "none"
+                document.getElementById("playmin6").style.display = "none"
+            }
+            disabledButton()
             // button 1 hilang
             document.getElementById("playmin1").style.display = "none";
             document.getElementById("play1").style.display = "none";
@@ -891,6 +942,13 @@
             'Kamu memenangkan set terakhir',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play5").style.display = "none"
+                document.getElementById("playmin5").style.display = "none"
+                document.getElementById("play6").style.display = "none"
+                document.getElementById("playmin6").style.display = "none"
+            }
+            disabledButton()
             document.getElementById("playmin1").style.display = "none";
             document.getElementById("play1").style.display = "none";
             // button 2 hilang juga
@@ -948,6 +1006,13 @@
             'Kamu memenangkan set terakhir',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play5").style.display = "none"
+                document.getElementById("playmin5").style.display = "none"
+                document.getElementById("play6").style.display = "none"
+                document.getElementById("playmin6").style.display = "none"
+            }
+            disabledButton()
             document.getElementById("playmin2").style.display = "none";
             document.getElementById("playmin1").style.display = "none";
             document.getElementById("play1").style.display = "none";
@@ -1004,6 +1069,13 @@
             'Kamu memenangkan set terakhir',
             'success'
             )
+            function disabledButton(){
+                document.getElementById("play5").style.display = "none"
+                document.getElementById("playmin5").style.display = "none"
+                document.getElementById("play6").style.display = "none"
+                document.getElementById("playmin6").style.display = "none"
+            }
+            disabledButton()
             document.getElementById("playmin1").style.display = "none";
             document.getElementById("play1").style.display = "none";
             // button 2 hilang juga
@@ -1031,6 +1103,7 @@
             document.getElementById("num6").style.display = "block" // angka 1/0 untuk angka p2
             document.getElementById("num5").innerHTML = scoreset1
             document.getElementById("num6").innerHTML = scoreset2
+            
         }
 
         else{
