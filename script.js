@@ -481,7 +481,7 @@
                         }
                         })
             }else{
-                console.log("kamu menang")
+                alert("kamu menang")
             }
             // end scorebabak2 pemain1
         }
@@ -584,7 +584,7 @@
                         }
                         })
             }else{
-                console.log("kamu menang")
+                alert("kamu menang")
             }
             // end scorebabak2 pemain1
         }
@@ -688,7 +688,7 @@
                         }
                         })
             }else{
-                console.log("kamu menang")
+                alert("kamu menang")
             }
             // end scorebabak2 pemain2
         }
@@ -788,7 +788,7 @@
                         }
                         })
             }else{
-                console.log("kamu menang")
+                alert("kamu menang")
             }
             // end scorebabak2 pemain2
         }
