@@ -5,6 +5,24 @@
     document.getElementById("tahun").innerHTML = tahun
     // end bikin tahun otomatis dengan javascript
 
+    // konfirmasi aturan sebelum memulai perhitungan
+    function Konfirmasi() {
+        var checkBox = document.getElementById("check");
+        var text = document.getElementById("konfirmasii");
+        if (checkBox.checked == true){
+            function myFunction() {
+                document.getElementById("konfirmasii").disabled = false;
+            }
+            myFunction()
+        } else {
+            function myFunction() {
+                document.getElementById("konfirmasii").disabled = true;
+            }
+            myFunction()
+        }
+    }
+    // end konfirmasi aturan
+
     function BackendCount(){
         var datapemain1 = document.getElementById("player1").value;
         var datapemain2 = document.getElementById("player2").value;
@@ -475,7 +493,7 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
@@ -589,7 +607,7 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
@@ -704,7 +722,7 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
@@ -815,7 +833,7 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik',
+                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
