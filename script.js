@@ -493,16 +493,16 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
                                 // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,12000)
-                            function FuncEnd() {
-                                location.reload()
-                            }
+                            // const greetback = setTimeout(FuncEnd,12000)
+                            // function FuncEnd() {
+                            //     location.reload()
+                            // }
                         }
                         })
             }else{
@@ -607,16 +607,16 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
                                 // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,12000)
-                            function FuncEnd() {
-                                location.reload()
-                            }
+                            // const greetback = setTimeout(FuncEnd,12000)
+                            // function FuncEnd() {
+                            //     location.reload()
+                            // }
                         }
                         })
             }else{
@@ -722,16 +722,16 @@
                         else{
                             Swal.fire({
                                 title:'Thank You',
-                                text:'Terima Kasih Sudah Mencoba Website ini jika ingin melihat angka/scorenya silahkan tekan tombol ok di tombolnya dan anda bisa melihat score dengan waktu 12 detik karena website akan segera mereload lagi untuk memulai lagi pertandingan yang baru',
+                                text:'Terima Kasih Sudah Mencoba Website ini',
                                 icon:'success',
                                 // allowEscapeKey: false,
                                 // allowOutsideClick: false,
                                 // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,12000)
-                            function FuncEnd() {
-                                location.reload()
-                            }
+                            // const greetback = setTimeout(FuncEnd,12000)
+                            // function FuncEnd() {
+                            //     location.reload()
+                            // }
                         }
                         })
             }else{
@@ -839,10 +839,10 @@
                                 // allowOutsideClick: false,
                                 // showConfirmButton: false,
                             })
-                            const greetback = setTimeout(FuncEnd,12000)
-                            function FuncEnd() {
-                                location.reload()
-                            }
+                            // const greetback = setTimeout(FuncEnd,12000)
+                            // function FuncEnd() {
+                            //     location.reload()
+                            // }
                         }
                         })
             }else{
